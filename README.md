@@ -21,7 +21,7 @@ See [Screenshots](https://github.com/jackokeeffe/reelSRCH/tree/master/screenshot
 - Made using Python.
 - GUI created with the [PySimpleGUI](https://github.com/nngogol/PySimpleGUIDesigner) module.
 - Search results powered by the [IMDBPY](https://imdbpy.github.io/) module.
-- Created in JetBrains PyCharm IDE!
+- Created in JetBrains PyCharm IDE.
 
 ### Author:
 - Author: Jack O'Keeffe
