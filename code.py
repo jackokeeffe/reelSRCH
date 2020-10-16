@@ -1,5 +1,5 @@
 import imdb
-from GUI import window, values
+from GUI import sg, window, values
 
 ia = imdb.IMDb()
 
@@ -9,37 +9,41 @@ year = 0
 director = 0
 cast = 0
 runtime = 0
+all_values = 0
 finish = 1
 
 def run_code():
-    global name, movie_title, movie, title, plot, year, director, cast, runtime
+    global sg, event, name, movie_title, movie, title, plot, year, director, cast, runtime
     while True:
-        event, value = window.read()
-        if event == 'SEARCH':
-            print(values[0])
-            name = str(values[0])
+        event, values = window.read()
 
-            print('Please wait while your results load...')
-            search = ia.search_movie(values[0])
-
-            id = search[0].movieID
-
-            code = id
-
-            movie = ia.get_movie(code)
-
-            movie_title = movie['title']
-
-            print('-----------------------------')
-            checkboxes1()
-
-        elif event == 'EXIT':
+        if event == sg.WIN_CLOSED or event == 'EXIT':
             break
 
-all = title + plot + year + director + cast + runtime
+        elif event == 'SEARCH':
+            if values[0] == '':
+                print('Please enter a valid title')
+                run_code()
+            else:
+                print(values[0])
+                name = str(values[0])
+
+                print('Please wait while your results load...')
+                search = ia.search_movie(values[0])
+
+                id = search[0].movieID
+
+                code = id
+
+                movie = ia.get_movie(code)
+
+                movie_title = movie['title']
+
+                print('-----------------------------')
+                checkboxes1()
 
 def checkboxes1():
-    global movie_title, movie, title, plot, year, director, cast, runtime, finish, value
+    global event, movie_title, movie, title, plot, year, director, cast, runtime, finish, value, all_values
     if values['-Title-'] is True and title == 0:
         title +=1
         print(movie_title)
@@ -73,8 +77,41 @@ def checkboxes1():
         runtime = str(movie['runtime'])[2:-2] + ' minutes'
         print(runtime)
         checkboxes1()
-    elif all == 0 and finish == 0:
+    elif values['-All-'] is True and all_values == 0:
+        all_values += 1
+        title += 1
+        print(movie_title)
+
+        plot += 1
+        text = str(movie['plot'])
+        split_string = text.split(":", 1)
+        substring = split_string[0]
+        print(substring[2:])
+
+        year += 1
+        year = movie['year']
+        print(year)
+
+        director += 1
+        director = str(movie['director'])[32:-3]
+        print(director)
+
+        cast += 1
+        cast1 = movie['cast'][0]
+        cast2 = movie['cast'][1]
+        cast3 = movie['cast'][2]
+        print('{}, {} and {}'.format(cast1, cast2, cast3))
+
+        runtime += 1
+        runtime = str(movie['runtime'])[2:-2] + ' minutes'
+        print(runtime)
+
+        checkboxes1()
+
+    elif all_values == 0 and finish == 0:
         print('To view information please choose a checkbox:')
+    elif event == 'WIN_CLOSED':
+        exit()
     else:
         finish += 1
         print('****************** COMPLETE ******************')
@@ -85,7 +122,6 @@ def checkboxes1():
         cast = 0
         runtime = 0
         finish = 0
-        values[0] = ''
-        run_code()
 
-run_code()
+if __name__ == '__main__':
+    run_code()
