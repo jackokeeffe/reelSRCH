@@ -1,7 +1,7 @@
 # reelSRCH
 A program made to simplify searching for your favourite movies!
 
-## Update:
+### Update:
 - Newest update has been released (9/16/20).
 - Included the ['All' Checkbox](https://github.com/jackokeeffe/reelSRCH/issues/1) button and bug fixes.
 - Screenshots have also been updated to reflect these changes.
