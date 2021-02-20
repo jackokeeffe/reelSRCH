@@ -39,5 +39,3 @@ See [Screenshots](https://github.com/jackokeeffe/reelSRCH/tree/master/screenshot
 - [PySimpleGUI](https://github.com/nngogol/PySimpleGUIDesigner) for their 'simple' GUI module and for helping me trouble-shoot some issues.
 - [IMDBPY](https://imdbpy.github.io/) for creating a useful and easy to learn IMDB module.
 - [othneildrew](https://github.com/othneildrew/Best-README-Template) for creating an awesome README.md template.
-- [Github](https://github.com/github/gitignore) for creating a .gitignore template (I had never made one previous to this).
-- [alexkaratarakis](https://github.com/alexkaratarakis/gitattributes) for creating a .gitattributes template (I had also never made one previous to this).
