@@ -15,7 +15,7 @@ A program made to simplify searching for your favourite movies!
 ### How-To/Installation:
 1. Clone the repo/type `git clone https://github.com/jackokeeffe/reelSRCH.git` into your command prompt.
 2. If your outermost folder is not reelSRCH type `cd reelSRCH` into your command prompt (for IDE's).
-3. Type `python version-one/setup.py install` into your command prompt. Wait for it to finish installing/loading indices.
+3. Type `python setup.py install` into your command prompt. Wait for it to finish installing/loading indices.
 4. Run the code and follow the instructions in the GUI.
 
 ### Contributing:
